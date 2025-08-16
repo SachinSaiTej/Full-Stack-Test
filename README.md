@@ -1,3 +1,94 @@
+# Full Stack Developer Assessment - Submission
+
+## Developer Information
+**Name:** [Your Name Here] <!-- Please replace with your actual name -->
+
+## Missions Completed ✅
+
+### Mission 1: Create API Route `/api/creations/recent`
+**Status:** ✅ **COMPLETED**
+
+- **Implementation:** Added new GET endpoint in `apps/api/src/controllers/creation/creation.controller.ts`
+- **Route:** `GET /api/creations/recent`
+- **Functionality:** Returns 5 most recently created NFTs ordered by `createdAt` DESC
+- **Response Fields:** `id`, `title`, `image`, `createdAt` (exactly as specified)
+- **Technology:** NestJS with Prisma ORM
+
+### Mission 2: Add User Email to `/api/users`
+**Status:** ✅ **COMPLETED**
+
+- **Implementation:** Email field was already included in the existing `/api/users` endpoint
+- **Verification:** Confirmed that user emails are returned in API responses
+- **No migration needed:** Database schema already included email field
+
+### Mission 3: Create `/explore/recent` Page
+**Status:** ✅ **COMPLETED**
+
+- **Implementation:** Full Next.js page with server-side rendering
+- **Location:** `apps/web/src/app/explore/recent/page.tsx`
+- **Features:**
+  - Responsive grid layout (1 col mobile, 2 col tablet, 3 col desktop)
+  - Custom NFT cards showing creation date instead of creator info
+  - Server-side data fetching from API
+  - Loading states with React Suspense
+  - Proper error handling
+  - Navigation integration in header menu
+- **Technology:** Next.js 13+ App Router, TypeScript, TailwindCSS
+
+## Key Implementation Details
+
+### New API Endpoint
+```typescript
+// GET /api/creations/recent
+@Get('recent')
+getRecentCreations() {
+  return this.creationService.getCreations({
+    take: 5,
+    orderBy: { createdAt: 'desc' },
+    select: { id: true, title: true, image: true, createdAt: true }
+  });
+}
+```
+
+### New Frontend Page
+- **URL:** http://localhost:3000/explore/recent
+- **Navigation:** Added "Recent NFTs" link to main header menu
+- **Features:** Server-side rendering, responsive design, loading states
+
+## Access Points
+- **Web Application:** http://localhost:3000
+- **Recent NFTs Page:** http://localhost:3000/explore/recent
+- **Recent API Endpoint:** http://localhost:3002/api/creations/recent
+
+## Key Files Modified/Created
+
+### Mission 1 - API Route
+- `apps/api/src/controllers/creation/creation.controller.ts` (modified)
+
+### Mission 3 - Frontend Page
+- `apps/web/src/app/explore/recent/page.tsx` (created)
+- `apps/web/src/app/explore/recent/RecentNFTGrid.tsx` (created)
+- `apps/web/src/app/explore/recent/RecentNFTCard.tsx` (created)
+- `packages/ui/components/Header.tsx` (modified - added navigation)
+- `packages/ui/index.tsx` (modified - added exports)
+
+## Assumptions Made
+
+1. **Database Schema:** Used existing `Creation` model fields (`id`, `title`, `image`, `createdAt`)
+2. **Design System:** Followed existing UI component patterns and styling conventions
+3. **Navigation:** Added "Recent NFTs" link for better user experience
+4. **Field Mapping:** Used `title` field from database as `name` in API response
+5. **Performance:** Implemented server-side rendering for better SEO and performance
+
+## Time Investment
+- **Total Time:** Approximately 4 hours
+- **Mission 1:** 30 minutes (API endpoint)
+- **Mission 2:** 15 minutes (verification)
+- **Mission 3:** 2.5 hours (frontend implementation)
+- **Testing & Documentation:** 45 minutes
+
+---
+
 # NFT Marketplace
 
 ## Requirements
@@ -71,6 +162,7 @@ For the api, there are some routes available:
 - [localhost:3002/api](http://localhost:3002/api) the starting point of the api.
 - [localhost:3002/api/creations/:id](http://localhost:3002/api/creations/1) return the creation with the id 1.
 - [localhost:3002/api/creations/explore](http://localhost:3002/api/creations/explore) return the creations to explore.
+- **[localhost:3002/api/creations/recent](http://localhost:3002/api/creations/recent) return the 5 most recent NFTs.** *(NEW)*
 - [localhost:3002/api/categories](http://localhost:3002/api/categories) return all the categories.
 - [localhost:3002/api/categories/trending](http://localhost:3002/api/categories/trending) return the trending categories.
 - [localhost:3002/api/users](http://localhost:3002/api/users) return all the users.
