@@ -1,7 +1,7 @@
 # Full Stack Developer Assessment - Submission
 
 ## Developer Information
-**Name:** [Your Name Here] <!-- Please replace with your actual name -->
+**Name:** Sai Teja K M <!-- Please replace with your actual name -->
 
 ## Missions Completed ✅
 
