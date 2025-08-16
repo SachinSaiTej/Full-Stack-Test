@@ -80,13 +80,6 @@ getRecentCreations() {
 4. **Field Mapping:** Used `title` field from database as `name` in API response
 5. **Performance:** Implemented server-side rendering for better SEO and performance
 
-## Time Investment
-- **Total Time:** Approximately 4 hours
-- **Mission 1:** 30 minutes (API endpoint)
-- **Mission 2:** 15 minutes (verification)
-- **Mission 3:** 2.5 hours (frontend implementation)
-- **Testing & Documentation:** 45 minutes
-
 ---
 
 # NFT Marketplace
