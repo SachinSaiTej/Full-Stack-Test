@@ -62,6 +62,8 @@ getRecentCreations() {
 
 ## Key Files Modified/Created
 
+**View all changes:** [GitHub PR - File Changes](https://github.com/SachinSaiTej/F1/pull/1/files)
+
 ### Mission 1 - API Route
 - `apps/api/src/controllers/creation/creation.controller.ts` (modified)
 
